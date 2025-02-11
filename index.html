@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>twins parfum de lux</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <style>
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          max-width: 350px;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 10px;
+          position: relative;
+          margin: 0 auto;
+        }
+        
+        .message {
+          color: #355891;
+          font-size: 14px;
+        }
+        
+        .flex {
+          display: flex;
+          width: 100%;
+          gap: 6px;
+        }
+        
+        .form label {
+          position: relative;
+        }
+        
+        .form label .input {
+          width: 100%;
+          padding: 10px 10px 20px 10px;
+          outline: 0;
+          border: 1px solid #355891;
+          border-radius: 5px;
+        }
+        
+        .form label .input + span {
+          position: absolute;
+          left: 10px;
+          top: 15px;
+          color: #355891;
+          font-size: 0.9em;
+          cursor: text;
+          transition: 0.3s ease;
+        }
+        
+        .form label .input:placeholder-shown + span {
+          top: 15px;
+          font-size: 0.9em;
+        }
+        
+        .form label .input:focus + span,.form label .input:valid + span {
+          top: 30px;
+          font-size: 0.7em;
+          font-weight: 600;
+        }
+        
+        .form label .input:valid + span {
+          color: green;
+        }
+        
+        .input01 {
+          width: 100%;
+          padding: 10px 10px 20px 10px;
+          outline: 0;
+          border: 1px solid #355891;
+          border-radius: 5px;
+        }
+        
+        .form label .input01 + span {
+          position: absolute;
+          left: 10px;
+          top: 50px;
+          color: #355891;
+          font-size: 0.9em;
+          cursor: text;
+          transition: 0.3s ease;
+        }
+        
+        .form label .input01:placeholder-shown + span {
+          top: 40px;
+          font-size: 0.9em;
+        }
+        
+        .form label .input01:focus + span,.form label .input01:valid + span {
+          top: 50px;
+          font-size: 0.7em;
+          font-weight: 600;
+        }
+        
+        .form label .input01:valid + span {
+          color: green;
+        }
+        
+        .fancy {
+          background-color: white;
+          border: 2px solid #355891;
+          border-radius: 0px;
+          box-sizing: border-box;
+          color: #355891;
+          cursor: pointer;
+          display: inline-block;
+          font-weight: 390;
+          letter-spacing: 2px;
+          margin: 0;
+          outline: none;
+          overflow: visible;
+          padding: 8px 30px;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          text-transform: none;
+          transition: all 0.3s ease-in-out;
+          user-select: none;
+          font-size: 13px;
+        }
+        
+        .fancy::before {
+          content: " ";
+          width: 1.7rem;
+          height: 2px;
+          background: #355891;
+          top: 50%;
+          left: 1.5em;
+          position: absolute;
+          transform: translateY(-50%);
+          transform: translateX(230%);
+          transform-origin: center;
+          transition: background 0.3s linear, width 0.3s linear;
+        }
+        
+        .fancy .text {
+          font-size: 1.125em;
+          line-height: 1.33333em;
+          padding-left: 2em;
+          display: block;
+          text-align: left;
+          transition: all 0.3s ease-in-out;
+          text-transform: lowercase;
+          text-decoration: none;
+          color: #355891;
+          transform: translateX(30%);
+        }
+        
+        .fancy .top-key {
+          height: 2px;
+          width: 1.5625rem;
+          top: -2px;
+          left: 0.625rem;
+          position: absolute;
+          background: #355891;
+          transition: width 0.5s ease-out, left 0.3s ease-out;
+        }
+        
+        .fancy .bottom-key-1 {
+          height: 2px;
+          width: 1.5625rem;
+          right: 1.875rem;
+          bottom: -2px;
+          position: absolute;
+          background: #355891;
+          transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+        
+        .fancy .bottom-key-2 {
+          height: 2px;
+          width: 0.625rem;
+          right: 0.625rem;
+          bottom: -2px;
+          position: absolute;
+          background: #355891;
+          transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+        
+        .fancy:hover {
+          color: #355891;
+          background: #5f82a9;
+        }
+        
+        .fancy:hover::before {
+          width: 1.5rem;
+          background: #355891;
+        }
+        
+        .fancy:hover .text {
+          color: white;
+          padding-left: 1.5em;
+        }
+        
+        .fancy:hover .top-key {
+          left: -2px;
+          width: 0px;
+        }
+        
+        .fancy:hover .bottom-key-1,
+         .fancy:hover .bottom-key-2 {
+          right: 0;
+          width: 0;
+        }
+        </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Parfums de Luxe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produits">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#a-propos">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">commande</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="hero-section text-center py-5">
+        <div class="container">
+            <h1 class="display-4">twins parfum</h1>
+            <p class="lead">Des fragrances uniques et originaux pour chaque occasion seulement pour les hommes.</p>
+            <button>
+                <span class="circle1"></span>
+                <span class="circle2"></span>
+                <span class="circle3"></span>
+                <span class="circle4"></span>
+                <span class="circle5"></span>
+                <span class="text" href="#produits">voir les produits</span>
+            </button>
+            <style>
+             button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 1em 2em;
+  border: none;
+  border-radius: .6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 50px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: .6s ease;
+}
+
+button span:nth-child(6) {
+  position: relative;
+}
+
+button span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+button span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+button span:nth-child(3) {
+  transform: translate(-.2em, 1.8em);
+}
+
+button span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+button span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+button:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}   
+            </style>
+        </div>
+    </section>
+
+    <section id="produits" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">les Produits</h2>
+            <div class="row">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download.jpeg" class="card-img-top" alt="stronger with you intensly">
+                        <div class="card-body">
+                            <h5 class="card-title">stronger with you intensly</h5>
+                            <p class="card-text">parfum de maison emporio armani prix 990dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (1).jpeg" class="card-img-top" alt="Parfum 2">
+                        <div class="card-body">
+                            <h5 class="card-title">dior homme intense </h5>
+                            <p class="card-text">parfum de maison dior prix 1100dh.</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (2).jpeg" class="card-img-top" alt="Parfum 3">
+                        <div class="card-body">
+                            <h5 class="card-title">JPG le male elixir</h5>
+                            <p class="card-text">parfum de maison Jean Paul Gaultier prix 1400dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+     <section id="produits" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+              
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (3).jpeg" class="card-img-top" alt="stronger with you intensly">
+                        <div class="card-body">
+                            <h5 class="card-title">Dolce Gabbana light bleu</h5>
+                            <p class="card-text">parfum de maison dolce & gabbana prix 1050dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (6).jpeg" class="card-img-top" alt="Parfum 2">
+                        <div class="card-body">
+                            <h5 class="card-title">xerjoff naxos </h5>
+                            <p class="card-text">parfum  de maison xerjoff prix 2650dh.</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (4).jpeg" class="card-img-top" alt="Parfum 3">
+                        <div class="card-body">
+                            <h5 class="card-title">montale arabian tonka</h5>
+                            <p class="card-text">parfum de maison montale prix 1200dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="produits" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+             
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (7).jpeg" class="card-img-top" alt="stronger with you intensly">
+                        <div class="card-body">
+                            <h5 class="card-title">tom ford ombre leather</h5>
+                            <p class="card-text">parfum de maison tom ford prix 1450dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (5).jpeg" class="card-img-top" alt="Parfum 2">
+                        <div class="card-body">
+                            <h5 class="card-title">LV imagination</h5>
+                            <p class="card-text">parfum  de maison louis vuitton prix 3800dh.</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="c:\Users\HP\Documents\site web\.vscode\download (8).jpeg" class="card-img-top" alt="Parfum 3">
+                        <div class="card-body">
+                            <h5 class="card-title">la coste blanc</h5>
+                            <p class="card-text">parfum de maison lacoste prix 700dh .</p>
+                            <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+        <section id="produits" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+              
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="c:\Users\HP\Documents\site web\.vscode\download (9).jpeg" class="card-img-top" alt="stronger with you intensly">
+                            <div class="card-body">
+                                <h5 class="card-title">bad boy extrem</h5>
+                                <p class="card-text">parfum de maison carolina herrera prix 1000dh .</p>
+                                <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="c:\Users\HP\Documents\site web\.vscode\download (10).jpeg" class="card-img-top" alt="Parfum 2">
+                            <div class="card-body">
+                                <h5 class="card-title">azzaro the most wanted</h5>
+                                <p class="card-text">parfum  de maison azzaro prix 750dh.</p>
+                                <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="c:\Users\HP\Documents\site web\.vscode\download (11).jpeg" class="card-img-top" alt="Parfum 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Terre D'hermes </h5>
+                                <p class="card-text">parfum de maison Terre D'hermes prix 1200dh .</p>
+                                <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+                <section id="produits" class="py-5 bg-light">
+                    <div class="container">
+                        <div class="row">
+                  
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (12).jpeg" class="card-img-top" alt="stronger with you intensly">
+                                    <div class="card-body">
+                                        <h5 class="card-title">JPG paradise garden</h5>
+                                        <p class="card-text">parfum de maison Jean Paul Gaultier prix 1000dh .</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                   
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (13).jpeg" class="card-img-top" alt="Parfum 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">stronger with you absolutely</h5>
+                                        <p class="card-text">parfum  de maison emporio armani prix 750dh.</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (14).jpeg" class="card-img-top" alt="Parfum 3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">orto parisi cuoium </h5>
+                                        <p class="card-text">parfum de maison orto parisi prix 2000dh .</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              
+                <section id="produits" class="py-5 bg-light">
+                    <div class="container">
+                        <div class="row">
+                        
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (15).jpeg" class="card-img-top" alt="stronger with you intensly">
+                                    <div class="card-body">
+                                        <h5 class="card-title">mancera red tobacco</h5>
+                                        <p class="card-text">parfum de maison mancera prix 1350dh .</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (16).jpeg" class="card-img-top" alt="Parfum 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Acqua Di Gio profondo</h5>
+                                        <p class="card-text">parfum  de maison Giorgio armani prix 1300dh.</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <img src="c:\Users\HP\Documents\site web\.vscode\download (17).jpeg" class="card-img-top" alt="Parfum 3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Initio Paradon </h5>
+                                        <p class="card-text">parfum de Initio prix 2900dh .</p>
+                                        <a href="#" class="btn btn-primary">Acheter maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+    <section id="a-propos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">À Propos de Nous</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Nous sommes une entreprise passionnée par les parfums de luxe et les parfum originaux . Notre mission est de vous offrir des fragrances uniques et de haute qualité pour chaque occasion.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Depuis notre création, nous nous engageons à fournir des produits exceptionnels et un service clientèle inégalé. Découvrez notre collection et laissez-vous emporter par nos parfums.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="contact" class="py-5 bg-light">
+     
+    <form class="form">
+        <h2 class="text-center mb-5">commande</h2>
+    <div class="flex">
+        <label>
+            <input class="input" type="text" placeholder="" required="">
+            <span>nom</span>
+        </label>
+
+        <label>
+            <input class="input" type="text" placeholder="" required="">
+            <span>prenom</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input class="input" type="email" placeholder="" required="">
+        <span>email</span>
+    </label> 
+        
+    <label>
+        <input class="input" placeholder="" type="tel" required="">
+        <span>numero de telephone</span>
+    </label>
+    <label>
+        <input class="input" placeholder="" type="tel" required="">
+        <span>ton adress</span>
+    </label>
+    <label>
+        <textarea class="input01" placeholder="" rows="3" required=""></textarea>
+        <span>quelle est votre commande</span>
+    </label>
+    <button>
+        <span class="circle1"></span>
+        <span class="circle2"></span>
+        <span class="circle3"></span>
+        <span class="circle4"></span>
+        <span class="circle5"></span>
+        <span class="text">entrer</span>
+    <style>
+        button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 1em 2em;
+  border: none;
+  border-radius: .6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 90px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: .6s ease;
+}
+
+button span:nth-child(6) {
+  position: relative;
+}
+
+button span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+button span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+button span:nth-child(3) {
+  transform: translate(-.2em, 1.8em);
+}
+
+button span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+button span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+button:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
+    </style>
+    </button>
+    
+    </form>
+    </section>
+
+ 
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p>&copy; 2023 Parfums de Luxe. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
